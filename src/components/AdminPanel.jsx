@@ -5,7 +5,7 @@ export default function AdminPanel() {
     const { 
         name,setName,
         description, setDescription,
-        profile,addProfile,
+        addProfile,
         image, setImage,
         coordinates, setCoordinates
     } = useContext(ProfileContext)
@@ -33,11 +33,11 @@ export default function AdminPanel() {
             >
         <label>Name:</label>
         <input 
-            className=''
             type="text"
             name='name' 
             value={name}
             onChange={(e)=>setName(e.target.value)}
+            placeholder='Enter your name'
             />
         <label>Description</label>
         <textarea 
@@ -45,6 +45,7 @@ export default function AdminPanel() {
             name="description"
             value={description}
             onChange={(e)=>setDescription(e.target.value)}
+            placeholder='ex: Frontend Developer'
         />
         <label>Image-Url</label>
         <input 
@@ -52,6 +53,7 @@ export default function AdminPanel() {
             name='image' 
             value={image}
             onChange={(e)=>setImage(e.target.value)}
+            placeholder='ex: https://via.placeholder.com/150'
         />
         <label>Coordinates</label>
         <input 
@@ -59,8 +61,9 @@ export default function AdminPanel() {
             name='coordinates' 
             value={coordinates}
             onChange={(e)=>setCoordinates(e.target.value)}
+            placeholder='ex: 111222, 333444'           
         />
-        <button className='btn btn-primary'>Submit</button>
+        <button className='btn btn-success'>Save</button>
     </form>
     
     </div>

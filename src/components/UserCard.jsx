@@ -1,15 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import {  useContext, useState, useEffect } from 'react';
+import {  useContext, useState } from 'react';
 import { ProfileContext  } from './context/ProfileContext';
 import Map from './Map';
 
 export default function UserCard() {
-  const { profile,addProfile } = useContext(ProfileContext)
+  const { profile,deleteProfile } = useContext(ProfileContext)
   const [showMap, setShowMap] = useState(false);
 
- 
-  
   const toggleMap = () => setShowMap(!showMap);
   return (
     <div className="container mt-4">
@@ -23,6 +21,12 @@ export default function UserCard() {
                 <p className="card-text">{user.description}</p>
                 <button className="btn btn-primary" onClick={toggleMap}>
           {showMap ? "Hide Map" : "Show Map"}
+        </button>
+        <button 
+          className="btn btn-danger" 
+          onClick={() => deleteProfile(user.id)}
+          >
+          Delete
         </button>
         {showMap && <Map coordinates = {user.coordinates}/>}
               </div>
