@@ -33,6 +33,7 @@ export default function AdminPanel() {
             >
         <label>Name:</label>
         <input 
+            className='form-control'
             type="text"
             name='name' 
             value={name}
@@ -41,6 +42,7 @@ export default function AdminPanel() {
             />
         <label>Description</label>
         <textarea 
+            className='form-control'
             type="text"
             name="description"
             value={description}
@@ -48,7 +50,8 @@ export default function AdminPanel() {
             placeholder='ex: Frontend Developer'
         />
         <label>Image-Url</label>
-        <input 
+        <input
+            className='form-control' 
             type="text"
             name='image' 
             value={image}
@@ -56,7 +59,8 @@ export default function AdminPanel() {
             placeholder='ex: https://via.placeholder.com/150'
         />
         <label>Coordinates</label>
-        <input 
+        <input
+            className='form-control' 
             type="text"
             name='coordinates' 
             value={coordinates}

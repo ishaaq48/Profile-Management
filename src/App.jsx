@@ -1,14 +1,11 @@
-// import { useState } from "react"
-import UserCard from "./components/UserCard"
 import { ProfileProvider } from "./components/context/ProfileContext";
-import AdminPanel from "./components/AdminPanel";
+import NavBar from "./components/NavBar";
 function App() {
   
   return (
     <ProfileProvider>
      <h1>Profile Management</h1>
-     <UserCard />
-     <AdminPanel />
+     <NavBar />
     </ProfileProvider>
   )
 }
