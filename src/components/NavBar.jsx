@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AdminPanel from './AdminPanel';
 import UserCard from './UserCard';
-
+import DetailedProfile from './DetailedProfile';
 export default function NavBar() {
     return (
         <Router>
@@ -27,6 +27,9 @@ export default function NavBar() {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/profile">Profile Card</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/detailed">Detailed Profile</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -35,7 +38,7 @@ export default function NavBar() {
                 <Routes>
                     <Route path="/admin" element={<AdminPanel />} />
                     <Route path="/profile" element={<UserCard />} />
-                    
+                    <Route path="/detailed" element={<DetailedProfile />} />
                 </Routes>
             </div>
         </Router>

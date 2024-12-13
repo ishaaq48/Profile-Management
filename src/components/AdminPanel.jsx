@@ -7,7 +7,13 @@ export default function AdminPanel() {
         description, setDescription,
         addProfile,
         image, setImage,
-        coordinates, setCoordinates
+        coordinates, setCoordinates,
+        skills,setSkills,
+        experience, setExperience,
+        education, setEducation,
+        hobbies, setHobbies,
+        socialLinks, setSocialLinks,
+
     } = useContext(ProfileContext)
     const  handleSubmit = (e) => {
         e.preventDefault()
@@ -16,13 +22,25 @@ export default function AdminPanel() {
         name,
         description,
         image,
-        coordinates: [lat, long]
+        coordinates: [lat, long],
+        skills,
+        experience,
+        education,
+        hobbies,
+        socialLinks,
         };
+
         addProfile(newProfile);
+        
         setName('');
         setDescription('');
         setImage('');
         setCoordinates('');
+        setSkills([]);
+        setExperience('');
+        setEducation('');
+        setHobbies('');
+        setSocialLinks({ linkedIn: '', github: '', twitter: '' });
     }
   return (
     <div className="container">
@@ -67,6 +85,52 @@ export default function AdminPanel() {
             onChange={(e)=>setCoordinates(e.target.value)}
             placeholder='ex: 111222, 333444'           
         />
+        <label>Skills (comma-separated):</label>
+        <input 
+            className='form-control'
+            type="text" 
+            value={skills.join(', ')} onChange={(e) => setSkills(e.target.value.split(',').map(skill => skill.trim()))} 
+            />
+
+        <label>Experience:</label>
+        <textarea 
+            className='form-control' 
+            value={experience} onChange={(e) => setExperience(e.target.value)} placeholder="Work experience" />
+
+        <label>Education:</label>
+        <textarea 
+            className='form-control' 
+            value={education} 
+            onChange={(e) => setEducation(e.target.value)} 
+            placeholder="Education background" />
+
+        <label>Hobbies:</label>
+        <input 
+            className='form-control' 
+            type="text" 
+            value={hobbies} 
+            onChange={(e) => setHobbies(e.target.value)} 
+            placeholder="Hobbies" />
+
+        <label>Social Links:</label>
+        <input 
+            className='form-control' 
+            type="text" 
+            placeholder="LinkedIn URL"
+            value={socialLinks.linkedIn} 
+            onChange={(e) => setSocialLinks({ ...socialLinks, linkedIn: e.target.value })} />
+        <input 
+            className='form-control' 
+            type="text" 
+            placeholder="GitHub URL" 
+            value={socialLinks.github} 
+            onChange={(e) => setSocialLinks({ ...socialLinks, github: e.target.value })} />
+        <input 
+            className='form-control' 
+            type="text" 
+            placeholder="Twitter URL" 
+            value={socialLinks.twitter} 
+            onChange={(e) => setSocialLinks({ ...socialLinks, twitter: e.target.value })} />
         <button className='btn btn-success'>Save</button>
     </form>
     

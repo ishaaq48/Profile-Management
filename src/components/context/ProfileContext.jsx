@@ -12,6 +12,11 @@ export const ProfileProvider = ({ children }) => {
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
     const [coordinates, setCoordinates] = useState('');
+    const [skills, setSkills] = useState([]);
+    const [experience, setExperience] = useState('');
+    const [education, setEducation] = useState('');
+    const [hobbies, setHobbies] = useState('');
+    const [socialLinks, setSocialLinks] = useState({ linkedIn: '', github: '', twitter: '' });
     const addProfile = (newProfile) => {
         setProfile((prevProfiles) => [...prevProfiles, { ...newProfile, id: Date.now() }])
     }
@@ -32,6 +37,11 @@ export const ProfileProvider = ({ children }) => {
         image,setImage,
         coordinates,setCoordinates,
         profile, addProfile,
+        skills,setSkills,
+        experience, setExperience,
+        education, setEducation,
+        hobbies, setHobbies,
+        socialLinks, setSocialLinks,
         deleteProfile
         }}>
             {children}

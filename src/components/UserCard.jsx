@@ -6,7 +6,7 @@ import Map from './Map';
 
 export default function UserCard() {
   const { profile,deleteProfile } = useContext(ProfileContext)
-   const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
   const [showMap, setShowMap] = useState(false)
 
    const filteredProfiles = profile.filter(user =>
