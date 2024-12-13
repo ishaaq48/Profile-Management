@@ -1,13 +1,31 @@
-import { useContext } from 'react'
+import { useContext,useState } from 'react'
 import { ProfileContext } from './context/ProfileContext'
 export default function DetailedProfile() {
+  const [searchQuery, setSearchQuery] = useState('')
   const { 
         profile
     } = useContext(ProfileContext)  
+   const filteredProfiles = profile.filter(user =>
+        user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        user.description.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  
   return (
+    <>
+      <div className="container mt-4">
+            <div className="mb-3">
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search by name or description..."
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                />
+            </div>
+          </div>
     <div className="container mt-4">
       <div className="row">
-        {profile.map(user => (
+        {filteredProfiles.map(user => (
           <div className="col-lg-4 col-md-12 mb-4" key={user.id}>
             <div className="card" style={{ width: '100%' }}>
               <img className="card-img-top" src={user.image} alt={user.name} />
@@ -32,5 +50,7 @@ export default function DetailedProfile() {
       </div>
     </div>
     
+    </>
+     
   )
 }
